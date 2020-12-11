@@ -12,7 +12,7 @@ class Support extends Component {
     } else if (num > 5) {
       alert('Please enter a number 1-5.');
     } else {
-      this.props.dispatch({ type: 'support', payload: num });
+      this.props.dispatch({ type: 'SUPPORT', payload: num });
       this.props.history.push('/comments');
     }
   };
@@ -24,7 +24,7 @@ class Support extends Component {
   render() {
     return (
       <div>
-        <h1>How are you Support today?</h1>
+        <h1>How well are your being supported today?</h1>
         <form>
           <label htmlFor='support'>Scale 1-5:</label>
           <input

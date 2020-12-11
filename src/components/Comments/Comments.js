@@ -6,8 +6,8 @@ class Comments extends Component {
     comments: '',
   };
   sendFeedback = () => {
-    this.props.dispatch({ type: 'comments', payload: this.state.comments });
-    this.props.history.push('/comments');
+    this.props.dispatch({ type: 'COMMENT', payload: this.state.comments });
+    this.props.history.push('/review');
   };
 
   handleChange = (e) => {
@@ -17,9 +17,9 @@ class Comments extends Component {
   render() {
     return (
       <div>
-        <h1>How are you Comments today?</h1>
+        <h1>Any comments you want to leave?</h1>
         <form>
-          <label htmlFor='comments'>Scale 1-5:</label>
+          <label htmlFor='comments'>Comment:</label>
           <input
             id='comments'
             type='text'

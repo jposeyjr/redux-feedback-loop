@@ -12,7 +12,7 @@ class Understanding extends Component {
     } else if (num > 5) {
       alert('Please enter a number 1-5.');
     } else {
-      this.props.dispatch({ type: 'understanding', payload: num });
+      this.props.dispatch({ type: 'UNDERSTAND', payload: num });
       this.props.history.push('/support');
     }
   };

@@ -8,9 +8,20 @@ import { Provider } from 'react-redux';
 
 const feedbackReducer = (state = [], action) => {
   if (action.type === 'FEELING') {
-    return [...state, action.payload];
+    console.log(action.payload);
+    return [...state, { feeling: action.payload }];
+  } else if (action.type === 'SUPPORT') {
+    console.log(action.payload);
+    return [...state, { support: action.payload }];
+  } else if (action.type === 'UNDERSTAND') {
+    console.log(action.payload);
+    return [...state, { understand: action.payload }];
+  } else if (action.type === 'COMMENT') {
+    console.log(state);
+    return [...state, { comment: action.payload }];
+  } else {
+    return state;
   }
-  return state;
 };
 
 const store = createStore(feedbackReducer);
