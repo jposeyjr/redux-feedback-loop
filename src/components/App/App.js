@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comment from '../Comments/Comments';
 
 class App extends Component {
   render() {
@@ -13,7 +17,12 @@ class App extends Component {
           </h4>
         </header>
         <br />
-        <Feeling />
+        <Router>
+          <Route exact path='/' component={Feeling} />
+          <Route path='/understanding' component={Understanding} />
+          <Route path='/comments' component={Comments} />
+          <Route path='/support' component={Support} />
+        </Router>
       </div>
     );
   }
