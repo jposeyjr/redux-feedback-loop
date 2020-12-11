@@ -11,6 +11,8 @@ class Support extends Component {
       alert('Please enter a valid number.');
     } else if (num > 5) {
       alert('Please enter a number 1-5.');
+    } else if (num === '') {
+      alert('Please enter a valid number.');
     } else {
       this.props.dispatch({ type: 'SUPPORT', payload: num });
       this.props.history.push('/comments');
@@ -30,7 +32,7 @@ class Support extends Component {
           <input
             id='support'
             type='number'
-            min='0'
+            min='1'
             max='5'
             pattern='[1-5]'
             onChange={(e) => this.handleChange(e)}
