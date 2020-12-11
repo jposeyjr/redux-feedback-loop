@@ -2,22 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Comments extends Component {
+  state = {
+    comments: '',
+  };
   sendFeedback = () => {
-    let comment = e.target.value;
-    {
-      this.props.dispatch({ type: 'COMMENTS', payload: comment });
-    }
+    this.props.dispatch({ type: 'comments', payload: this.state.comments });
+    this.props.history.push('/comments');
+  };
+
+  handleChange = (e) => {
+    this.setState({ comments: e.target.value });
   };
 
   render() {
     return (
       <div>
-        <h1>Do you have any comments that you want to leave?</h1>
+        <h1>How are you Comments today?</h1>
         <form>
-          <label>Comments</label>
-          <input type='text'></input>
+          <label htmlFor='comments'>Scale 1-5:</label>
+          <input
+            id='comments'
+            type='text'
+            onChange={(e) => this.handleChange(e)}
+            pattern='[A-Za-z]{120}'
+          ></input>
         </form>
-        <button>Submit</button>
+        <button onClick={this.sendFeedback}>Next</button>
       </div>
     );
   }

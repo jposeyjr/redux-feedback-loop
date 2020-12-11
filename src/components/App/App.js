@@ -20,7 +20,7 @@ class App extends Component {
         <Router>
           <Route exact path='/' component={Feeling} />
           <Route path='/understanding' component={Understanding} />
-          <Route path='/comments' component={Comments} />
+          <Route path='/comments' component={Comment} />
           <Route path='/support' component={Support} />
         </Router>
       </div>

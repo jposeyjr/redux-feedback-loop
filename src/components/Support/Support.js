@@ -2,28 +2,42 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Support extends Component {
+  state = {
+    support: '',
+  };
   sendFeedback = () => {
-    let num = e.target.value;
+    let num = this.state.support;
     if (num === 0) {
       alert('Please enter a valid number.');
-    } else if (num > 10) {
-      alert('Please enter a number 1-10.');
+    } else if (num > 5) {
+      alert('Please enter a number 1-5.');
     } else {
-      {
-        this.props.dispatch({ type: 'SUPPORT', payload: num });
-      }
+      this.props.dispatch({ type: 'support', payload: num });
+      this.props.history.push('/comments');
     }
+  };
+
+  handleChange = (e) => {
+    this.setState({ support: e.target.value });
   };
 
   render() {
     return (
       <div>
-        <h1>How well are you being supported today?</h1>
+        <h1>How are you Support today?</h1>
         <form>
-          <label>Scale 1-10:</label>
-          <input type='number' required></input>
+          <label htmlFor='support'>Scale 1-5:</label>
+          <input
+            id='support'
+            type='number'
+            min='0'
+            max='5'
+            pattern='[1-5]'
+            onChange={(e) => this.handleChange(e)}
+            required='required'
+          ></input>
         </form>
-        <button>Submit</button>
+        <button onClick={this.sendFeedback}>Next</button>
       </div>
     );
   }
