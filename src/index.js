@@ -7,17 +7,17 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const initState = [];
+const initState = {};
 
 const feedbackReducer = (state = initState, action) => {
   if (action.type === 'FEELING') {
-    return [...state, { feeling: action.payload }];
+    return { ...state, feeling: action.payload };
   } else if (action.type === 'SUPPORT') {
-    return [...state, { support: action.payload }];
+    return { ...state, support: action.payload };
   } else if (action.type === 'UNDERSTAND') {
-    return [...state, { understand: action.payload }];
+    return { ...state, understand: action.payload };
   } else if (action.type === 'COMMENT') {
-    return [...state, { comment: action.payload }];
+    return { ...state, comment: action.payload };
   } else {
     return state;
   }
