@@ -5,11 +5,8 @@ import axios from 'axios';
 
 class Review extends Component {
   handleClick = () => {
-    axios({
-      method: 'POST',
-      url: '/feedback',
-      data: this.props.reduxStore,
-    })
+    axios
+      .post('/feedback', this.props.reduxState)
       .then((res) => {
         console.log('POST response', res);
       })
